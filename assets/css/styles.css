@@ -1,0 +1,29 @@
+* {
+	font-family: 'Droid Sans Mono';
+	color: #222;
+}
+
+ul, li {
+	list-style: none;
+	padding: 0;
+}
+
+.nav {
+	width: 320px;
+	max-width: 100%;
+	border-right: solid 1px #222;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top:0;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 1em 1em;
+}
+
+.nav .nav-items li {
+	margin: 0.5em 0;
+}
+
+.see-info {
+	color: red;
+}

@@ -1,0 +1,16 @@
+.DS_Store
+
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+assets/episodes/images/*.jpg
+assets/episodes/images/*.jpeg
+assets/episodes/images/*.png
+
+assets/episodes/audio/*.mp3
+assets/episodes/images/*.wav
