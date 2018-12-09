@@ -18,12 +18,78 @@ ul, li {
 	top:0;
 	background: rgba(255, 255, 255, 0.8);
 	padding: 1em 1em;
+	z-index: 3;
 }
 
 .nav .nav-items li {
 	margin: 0.5em 0;
 }
 
-.see-info {
+.nav .nav-items li.nav-item a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.see-info,
+.selected-episode {
 	color: red;
+}
+
+.main-background {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-position: center;
+	background-size: cover;
+	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	filter: grayscale(100%);
+}
+
+.brighten-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	background-color: rgba(255, 255, 255, 0.2);
+	background-size: cover;
+	background-position: center;
+	margin: 0;
+	padding: 0;
+	z-index: 2;
+}
+
+#info-modal {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 4;
+	display: none;
+}
+
+#info-modal #info-modal-content {
+	width: 96%;
+	max-width: 600px;
+	display: block;
+	margin: 4em auto;
+	border: solid 1px white;
+	padding: 2em;
+}
+
+#info-modal #info-modal-content p {
+	color: white !important;
+ }
+
+.pointer {
+	cursor: pointer;
+}
+
+.close {
+	height: 1.5em;
 }

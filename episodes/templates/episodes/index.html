@@ -1,21 +1,11 @@
 {% extends "layout.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ current_episode.number }}{% endblock %}
 
 {% block content %}
 
-<div class="nav">
-	<ul class="nav-items">
-		<li>Intro To Rhythm<li>
-		<li>------</li>
-		<li>Now Playing: Ep {{ current_episode.number }}</li>
-		<li>0 / 0 sec</li>
-		<li class="see-info">See Ep {{ current_episode.number }} Info &lt;</li>
-		<li>------</li>
-		{% for episode in episodes %}
-			<li class="nav-item">{{ episode.number }}- {{ episode.title }}</li>
-		{% endfor %}
-	</ul>
-</div>
+{% include "episodes/partials/navigation.html" %}
+{% include "episodes/partials/background_image.html" %}
+{% include "episodes/partials/info_modal.html" %}
 
 {% endblock %}

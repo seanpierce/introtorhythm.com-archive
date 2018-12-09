@@ -1,0 +1,22 @@
+{% load static from staticfiles %}
+
+<div id="info-modal">
+	<div id="info-modal-content">
+		<img 
+			class="close pointer" 
+			src="{% static 'images/close.svg' %}" 
+			onclick="closeModal('info-modal')"
+			alt="">
+		<p>{{ current_episode.number }}- {{current_episode.title}}</p>
+		<p>{{ current_episode.info|linebreaks }}</p>
+
+		<div id="info-modal-content-footer">
+			<p>------------</p>
+			<p>
+				Share this podcast on:<br>
+				facebook / twitter
+			</p>
+			<p>info@introtorhythm.com</p>
+		</div>
+	</div>
+</div>
