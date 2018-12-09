@@ -71,6 +71,7 @@ ul, li {
 	background: rgba(0, 0, 0, 0.7);
 	z-index: 4;
 	display: none;
+	overflow: scroll;
 }
 
 #info-modal #info-modal-content {
@@ -92,4 +93,33 @@ ul, li {
 
 .close {
 	height: 1.5em;
+}
+
+#player {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 3em;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 1);
+	z-index: 20;
+}
+
+#audioplayer {
+	width: 100%;
+	height: 3em;
+}
+
+#timeline {
+	width: 100%;
+	height: 3em;
+	border-top: solid 1px black;
+	background: rgba(255,255,255,1);
+}
+
+#playhead {
+	width: 10px;
+	height: 3em;
+	background: rgba(0, 0, 0, 1);
+	cursor: ew-resize;
 }
