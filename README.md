@@ -31,6 +31,10 @@ See implementation docs <a href="https://simpleisbetterthancomplex.com/tutorial/
 
 An integrated REST API is implemented using **djangorestframework** installed viia pip. See implementation docs <a href="https://medium.com/backticks-tildes/lets-build-an-api-with-django-rest-framework-32fcf40231e5">here</a>.
 
+### Deployments
+
+The application will be hosted on an Elastic Beanstalk instance and deployments will be handled using AWS's `awsebcli` command-line tools. See implementation docs <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html">here</a>.
+
 Currently exposed routes:
 
 | Method |   Endpoint    |             Result             |
