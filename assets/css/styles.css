@@ -76,11 +76,12 @@ ul, li {
 
 #info-modal #info-modal-content {
 	width: 96%;
-	max-width: 600px;
+	max-width: 700px;
 	display: block;
-	margin: 4em auto;
+	margin: 4em auto 8em auto;
 	border: solid 1px white;
 	padding: 2em;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 #info-modal #info-modal-content p {
@@ -122,4 +123,36 @@ ul, li {
 	height: 3em;
 	background: rgba(0, 0, 0, 1);
 	cursor: ew-resize;
+}
+
+#play-button-container {
+	width: auto;
+	text-align: center;
+	height: 200px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 2;
+}
+
+#play-button {
+	height:200px;
+	width: 200px;
+	border: none;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	outline:none;
+	cursor: pointer;
+}
+
+.play { 
+	background: url('/assets/images/play.png');
+}
+
+.pause {
+	 background: url('/assets/images/pause.png');
 }
