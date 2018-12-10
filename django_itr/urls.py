@@ -22,7 +22,7 @@ from . import views
 
 urlpatterns = [
 	url(r'^ep/', include('episodes.urls')),
-	url(r'^$', include('episodes.urls')),
+	url(r'', include('episodes.urls')),
     path('admin/', admin.site.urls),
 ]
 
