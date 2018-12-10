@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 
 from .models import Episode
+
 # Create your views here.
 def index(request):
 	episodes = Episode.objects.all()
