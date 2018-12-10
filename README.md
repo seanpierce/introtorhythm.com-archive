@@ -6,10 +6,21 @@ introtorhythm.com, but reimagined as a Django application!
 
 Install the following using `pip install`
 
+-   django (duh!)
 -   django-storages
 -   boto3
 -   djangorestframework
 -   Pillow (for ImageField/ FileField access in models)
+
+### Local installation and usage
+
+-   Clone this repo by running `$ git clone https://github.com/seanpierce/django-itr`
+-   Rename `django-itr/_secrets.py` to `django-itr/secrets.py` and add your <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS security credentials</a>
+-   Install the dependencies that are listed above
+-   From the project's root, run `$ python manage.py migrate` to generate the database
+-   Start the Django development server by running `$ python manage.py runserver 0.0.0.0:8000`
+-   Create an admin user by running `$ python manage.py createsuperuser` and follow the provided instructions
+-   Visit <a href="http://localhost:8000/">localhost:8000</a> in your preferred browser
 
 ### AWS storage
 
