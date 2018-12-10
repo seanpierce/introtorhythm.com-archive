@@ -68,10 +68,7 @@ function mouseUp(e) {
 		// change current time
 		var percent = clickPercent(event);
 		if (duration && percent) {
-			console.log('music-current',music.currentTime)
-			console.log('set-attempt', duration * percent)
 			music.currentTime = duration * percent;
-			console.log('music-current-2',music.currentTime)
 		}
 		music.addEventListener('timeupdate', timeUpdate, false);
 	}
