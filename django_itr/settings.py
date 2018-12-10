@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'episodes'
+
+	'episodes',
+	# AWS storage app
+	'storages',
 ]
 
 MIDDLEWARE = [
