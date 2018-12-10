@@ -8,9 +8,11 @@ local_settings.py
 db.sqlite3
 media
 
+django_itr/secrets.py
+
 assets/episodes/images/*.jpg
 assets/episodes/images/*.jpeg
 assets/episodes/images/*.png
 
 assets/episodes/audio/*.mp3
-assets/episodes/images/*.wav
+assets/episodes/audio/*.wav
