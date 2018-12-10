@@ -2,10 +2,26 @@
 
 <div id="archive-modal" class="modal">
 	<div class="modal-content">
+		<p>
+			<img 
+				class="close pointer" 
+				src="{% static 'images/close.svg' %}" 
+				onclick="closeModal('archive-modal')"
+				alt="">
+		</p>
 		{% for episode in episodes %}
 			<div class="archive-episode">
 				<div class="aspect-ratio" style="background-image: url('https://s3.amazonaws.com/podcasts.introtorhythm.com/media/{{ episode.image }}')">
-					<div class="hover-info"></div>
+					<div class="hover-info">
+						<ul class="hover-content">
+							<li>
+								<a href="{% url 'episode' pk=episode.number %}">{{ episode.number }}</a>
+							</li>
+							<li>
+								<a href="{% url 'episode' pk=episode.number %}">{{ episode.title }}</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		{% endfor %}

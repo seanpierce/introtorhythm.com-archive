@@ -1,6 +1,7 @@
 * {
 	font-family: 'Droid Sans Mono';
 	color: #222;
+	box-sizing: border-box;
 }
 
 ul, li {
@@ -82,6 +83,12 @@ ul, li {
 	border: solid 1px white;
 	padding: 2em;
 	background: rgba(0, 0, 0, 0.5);
+}
+
+#archive-modal .modal-content {
+	border: none;
+	padding: 0;
+	background: none;
 }
 
 .modal .modal-content p,
@@ -194,7 +201,6 @@ ul, li {
 }
 
 .hover-content {
-	color: white;
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -210,4 +216,9 @@ ul, li {
 	margin: 4px;
 	cursor: pointer;
 	font-size: 14px;
+	color: white !important;
+}
+
+.hover-content li a {
+	text-decoration: none;
 }
