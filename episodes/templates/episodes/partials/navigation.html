@@ -4,9 +4,12 @@
 		<li>------</li>
 		<li>Now Playing: Ep {{ current_episode.number }}</li>
 		<li id="tracktime">00:00:00 / 00:00:00</li>
-		<li class="see-info pointer"
-			onclick="openModal('info-modal')">
-			See Ep {{ current_episode.number }} Info &lt;
+		<li>
+			<span 
+				class="see-info pointer"
+				onclick="openModal('info-modal')">
+				See Ep {{ current_episode.number }} Info &lt;
+			</span>
 		</li>
 		<li>------</li>
 		{% for episode in episodes %}
@@ -17,7 +20,17 @@
 			{% endif %}
 		{% endfor %}
 		<li>------</li>
-		<li>About ITR</li>
-		<li>Archive</li>
+		<li>
+			<span 
+				class="pointer"
+				onclick="openModal('about-modal')">About ITR
+			</span>
+		</li>
+		<li>
+			<span 
+				class="pointer"
+				onclick="openModal('archive-modal')">Archive
+			</span>
+		</li>
 	</ul>
 </div>
