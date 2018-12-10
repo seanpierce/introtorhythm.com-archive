@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 	'episodes',
+	'api',
 	# AWS storage app
 	'storages',
+	'rest_framework',
 ]
 
 MIDDLEWARE = [
