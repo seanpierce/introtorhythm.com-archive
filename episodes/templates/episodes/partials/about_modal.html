@@ -1,0 +1,19 @@
+{% load static from staticfiles %}
+
+<div id="about-modal" class="modal">
+	<div class="modal-content">
+		<img 
+			class="close pointer" 
+			src="{% static 'images/close.svg' %}" 
+			onclick="closeModal('about-modal')"
+			alt="">
+		<p>Intro To Rhythm is a freeform podcasting series beginning in 2017. All episodes are owned by their creators and made exclusively for Intro To Rhythm.</p>
+		<p>Send questions and comments to info@introtorhythm.com</p>
+		<p>
+			Follow ITR on:
+			<a href="https://www.facebook.com/introtorhythm/" target="_blank">Facebook</a> / 
+			<a href="https://www.instagram.com/introtorhythm/" target="_blank">Instagram</a> / 
+			<a href="https://twitter.com/introtorhythm" target="_blank">Twitter</a>
+		</p>	
+	</div>
+</div>

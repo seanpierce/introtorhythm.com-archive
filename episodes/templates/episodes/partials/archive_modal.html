@@ -1,0 +1,13 @@
+{% load static from staticfiles %}
+
+<div id="archive-modal" class="modal">
+	<div class="modal-content">
+		{% for episode in episodes %}
+			<div class="archive-episode">
+				<div class="aspect-ratio" style="background-image: url('https://s3.amazonaws.com/podcasts.introtorhythm.com/media/{{ episode.image }}')">
+					<div class="hover-info"></div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
