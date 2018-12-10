@@ -130,3 +130,15 @@ STATIC_URL = '/assets/'
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR, 'assets/')
 ]
+
+# AWS S3 configuration
+AWS_ACCESS_KEY_ID = secrets.AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY = secrets.AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME = secrets.AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = secrets.AWS_S3_CUSTOM_DOMAIN
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+DEFAULT_FILE_STORAGE = 'django_itr.storage_backends.MediaStorage'
