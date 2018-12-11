@@ -60,6 +60,7 @@ function mouseDown() {
 	window.addEventListener('mousemove', moveplayhead, true);
 	music.removeEventListener('timeupdate', timeUpdate, false);
 }
+
 // mouseUp EventListener
 // getting input from all mouse clicks
 function mouseUp(e) {
@@ -101,14 +102,11 @@ function timeUpdate() {
 }
 //Play and Pause
 function play() {
-	// start music
 	if (music.paused) {
 		music.play();
-		// remove play, add pause
 		playButton.className = "pause";
-	} else { // pause music
+	} else { 
 		music.pause();
-		// remove pause, add play
 		playButton.className = "play";
 	}
 }
@@ -119,8 +117,12 @@ music.addEventListener("canplaythrough", function () {
 
 // update current time of track
 music.ontimeupdate = function() {
-	var current = Math.floor(this.currentTime).toString()
-	var total = Math.floor(this.duration).toString()
+	setNowPlayingTime();
+}
+
+function setNowPlayingTime() {
+	var current = Math.floor(music.currentTime).toString();
+	var total = Math.floor(music.duration).toString();
 	document.getElementById('tracktime').innerHTML = current.toTime() + ' / ' + total.toTime();
 }
   

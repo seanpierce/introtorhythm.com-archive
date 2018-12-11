@@ -20,11 +20,17 @@ ul, li {
 	background: rgba(255, 255, 255, 0.8);
 	padding: 1em 1em;
 	z-index: 3;
+	overflow-y: scroll;
+}
+
+.nav .nav-items {
+	margin-bottom: 4em;
 }
 
 .nav .nav-items li {
 	margin: 0.5em 0;
 }
+
 
 .nav .nav-items li.nav-item a {
 	text-decoration: none;
@@ -70,9 +76,9 @@ ul, li {
 	top: 0;
 	left: 0;
 	background: rgba(0, 0, 0, 0.7);
-	z-index: 4;
+	z-index: 8;
 	display: none;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 .modal .modal-content {
@@ -111,7 +117,7 @@ ul, li {
 	height: 3em;
 	width: 100%;
 	background-color: rgba(255, 255, 255, 1);
-	z-index: 20;
+	z-index: 7;
 }
 
 #audioplayer {
@@ -134,16 +140,16 @@ ul, li {
 }
 
 #play-button-container {
-	width: auto;
+	width: 200px;
 	text-align: center;
 	height: 200px;
-	position: absolute;
+	position: fixed;
 	top:0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin: auto;
-	z-index: 2;
+	z-index: 1;
 }
 
 #play-button {
@@ -221,4 +227,37 @@ ul, li {
 
 .hover-content li a {
 	text-decoration: none;
+}
+
+/* ------------------------- Media Queries */
+/* ------------------------- Media Queries */
+/* ------------------------- Media Queries */
+
+@media (max-width: 750px) {
+	.nav .nav-items {
+		margin-top: 200px;
+	}
+
+	#play-button-container {
+		position: absolute;
+		bottom: unset;
+	}
+
+	.archive-episode {
+		width: 50%;
+	}
+
+	.hover-info {
+		opacity: 1;
+	}
+
+	.modal .modal-content {
+		font-size: 0.8em;
+	}
+}
+
+@media (max-width: 500px) {
+	.nav {
+		width: 100%;
+	}
 }
