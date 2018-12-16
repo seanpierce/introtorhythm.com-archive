@@ -15,24 +15,17 @@ Install the following using `pip install`
 
 ### Local installation and usage
 
--   Clone this repo by running `$ git clone https://github.com/seanpierce/django-itr`
--   Rename `django-itr/_secrets.py` to `django-itr/secrets.py` and add your <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS security credentials</a>
+-   Clone this repo `$ git clone https://github.com/seanpierce/django-itr`
 -   Install the dependencies that are listed above
 -   From the project's root, run `$ python manage.py migrate` to generate the database
--   Start the Django development server by running `$ python manage.py runserver 0.0.0.0:8000`
+-   Start the Django development server by running `$ python manage.py runserver`
 -   Create an admin user by running `$ python manage.py createsuperuser` and follow the provided instructions
 -   Visit <a href="http://localhost:8000/">localhost:8000</a> in your preferred browser
 
 ### AWS storage
 
-Admin-uploaded files are stored in an AWS S3 bucket. This functionality is possible using **boto3** and **django-storages** installed via pip.
+Admin-uploaded files are stored in an AWS S3 bucket. This functionality is possible using the **boto3** and **django-storages** python packages.
 See implementation docs <a href="https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html">here</a>.
-
-### Deployments
-
-The application will be hosted on a DigitalOcean droplet cloud server running Ubuntu (16.04.5 x64). See Ubuntu setup documentation <a href="https://www.digitalocean.com/community/tutorials/how-to-install-django-and-set-up-a-development-environment-on-ubuntu-16-04">here</a>. The application is served using <a href="https://www.nginx.com/">Nginx</a> and <a href="https://gunicorn.org/">Gunicorn</a>. See webserver configuration documentation <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04">here</a>.
-
-After deploying code, or making updates on the server, restart nginx and gunicorn by running `sudo systemctl restart nginx gunicorn`
 
 ### Environment Variables
 
@@ -54,6 +47,12 @@ ex: environments/settings.ini
 SECRET_STRING = somestring
 SECRET_ARRAY = some,example,array
 ```
+
+### Deployments
+
+The application will be hosted on a DigitalOcean droplet cloud server running Ubuntu (16.04.5 x64). See Ubuntu setup documentation <a href="https://www.digitalocean.com/community/tutorials/how-to-install-django-and-set-up-a-development-environment-on-ubuntu-16-04">here</a>. The application is served using <a href="https://www.nginx.com/">Nginx</a> and <a href="https://gunicorn.org/">Gunicorn</a>. See webserver configuration documentation <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04">here</a>.
+
+After deploying code, or making updates on the server, restart nginx and gunicorn by running `sudo systemctl restart nginx gunicorn`
 
 ### REST API
 
