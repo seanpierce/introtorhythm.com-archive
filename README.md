@@ -35,6 +35,8 @@ An integrated REST API is implemented using **djangorestframework** installed vi
 
 The application will be hosted on a DigitalOcean droplet cloud server running Ubuntu. See installation documentation <a href="https://www.digitalocean.com/community/tutorials/how-to-install-django-and-set-up-a-development-environment-on-ubuntu-16-04">here</a>.
 
+After deploying code, or making updates on the server, restart the nginx and gunicorn by running `sudo systemctl restart nginx gunicorn`
+
 Currently exposed routes:
 
 | Method |   Endpoint    |             Result             |
