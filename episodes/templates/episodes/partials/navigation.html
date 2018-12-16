@@ -17,9 +17,9 @@
 		<li>------</li>
 		{% for episode in episodes %}
 			{% if current_episode == episode %}
-				<li class="nav-item selected-episode"><a href="{% url 'episode' pk=episode.number %}">{{ episode.number }}- {{ episode.title }}</a></li>
+				<li class="nav-item selected-episode"><a href="{% url 'episode' primary_key=episode.number %}">{{ episode.number }}- {{ episode.title }}</a></li>
 			{% else %}
-				<li class="nav-item"><a href="{% url 'episode' pk=episode.number %}">{{ episode.number }}- {{ episode.title }}</a></li>
+				<li class="nav-item"><a href="{% url 'episode' primary_key=episode.number %}">{{ episode.number }}- {{ episode.title }}</a></li>
 			{% endif %}
 		{% endfor %}
 		<li>------</li>
