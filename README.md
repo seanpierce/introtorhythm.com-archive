@@ -59,7 +59,7 @@ After deploying code, or making updates on the server, restart nginx and gunicor
 
 ### REST API
 
-An integrated REST API is implemented using **djangorestframework** installed via pip. See implementation docs <a href="https://medium.com/backticks-tildes/lets-build-an-api-with-django-rest-framework-32fcf40231e5">here</a>.
+A REST API is implemented using the **djangorestframework** python package. See implementation docs <a href="https://medium.com/backticks-tildes/lets-build-an-api-with-django-rest-framework-32fcf40231e5">here</a>.
 
 Currently exposed routes:
 
