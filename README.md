@@ -29,7 +29,7 @@ See implementation docs <a href="https://simpleisbetterthancomplex.com/tutorial/
 
 ### Environment Variables
 
-Using <a href="https://docs.python.org/3/library/configparser.html">configparser</a>, the settings.py file imports a configuration file (`settings.ini`) located in the application's sibling folder called `environments`.
+Using <a href="https://docs.python.org/3/library/configparser.html">configparser</a>, the settings.py file imports a configuration file named `settings.ini`, located in the application's sibling folder called `environments`.
 
 ex: settings.py
 ```python
