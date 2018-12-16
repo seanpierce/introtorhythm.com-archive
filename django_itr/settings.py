@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import configparser
 
-
-from . import secrets
+CONFIG = configparser.RawConfigParser()
+CONFIG.read('../environments/settings.ini')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,9 +27,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'so(-2^t#q@mmbu@=#lr9=zljawkw%mlu=%!b5c043w&6bh8qsf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+# DEBUG = True
+DEBUG = bool(CONFIG.get('Environment', 'DEBUG'))
+
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = CONFIG.get('Environment', 'ALLOWED_HOSTS').split()
+
 
 
 # Application definition
@@ -41,11 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-	'episodes',
-	'api',
-	# AWS storage app
-	'storages',
-	'rest_framework',
+    'episodes',
+    'api',
+    # AWS storage app
+    'storages',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -133,11 +138,10 @@ STATICFILES_DIRS = [
 	os.path.join(BASE_DIR, 'assets/')
 ]
 
-# AWS S3 configuration
-AWS_ACCESS_KEY_ID = secrets.AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY = secrets.AWS_SECRET_ACCESS_KEY
-AWS_STORAGE_BUCKET_NAME = secrets.AWS_STORAGE_BUCKET_NAME
-AWS_S3_CUSTOM_DOMAIN = secrets.AWS_S3_CUSTOM_DOMAIN
+AWS_ACCESS_KEY_ID = CONFIG.get('AWS Secret Keys', 'AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = CONFIG.get('AWS Secret Keys', 'AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'podcasts.introtorhythm.com'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
