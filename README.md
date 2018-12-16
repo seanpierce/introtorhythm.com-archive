@@ -46,6 +46,9 @@ ex: environments/settings.ini
 [Test Keys]
 SECRET_STRING = somestring
 SECRET_ARRAY = some,example,array
+
+[Environment]
+DEBUG = True
 ```
 
 ### Deployments
