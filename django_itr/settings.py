@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'episodes',
+	'subscribers',
     'api',
     # AWS storage app
     'storages',
