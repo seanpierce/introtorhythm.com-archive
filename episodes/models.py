@@ -6,8 +6,10 @@ class Episode(models.Model):
 	title = models.CharField(max_length=255)
 	number = models.CharField(max_length=3)
 	info = models.TextField()
-	image = models.ImageField(upload_to='episodes/images/', max_length=500, default='assets/not-found.jpg')
-	audio = models.FileField(upload_to='episodes/audio/', max_length=500, default='assets/not-found.mp3')
+	image = models.ImageField(upload_to='episodes/images/',
+		max_length=500, default='assets/not-found.jpg')
+	audio = models.FileField(upload_to='episodes/audio/',
+		max_length=500, default='assets/not-found.mp3')
 
 	class Meta:
 		ordering = ['-number',]
