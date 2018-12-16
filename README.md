@@ -33,7 +33,7 @@ An integrated REST API is implemented using **djangorestframework** installed vi
 
 ### Deployments
 
-The application will be hosted on an Elastic Beanstalk instance and deployments will be handled using AWS's `awsebcli` command-line tools. See implementation docs <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html">here</a>.
+The application will be hosted on a DigitalOcean droplet cloud server running Ubuntu. See installation documentation <a href="https://www.digitalocean.com/community/tutorials/how-to-install-django-and-set-up-a-development-environment-on-ubuntu-16-04">here</a>.
 
 Currently exposed routes:
 
