@@ -5,16 +5,10 @@ from django.core import serializers
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
+from .api_helpers import APIResponse, send_confirmation_email, response
+
 Episode = apps.get_model('episodes', 'Episode')
-
-
-class APIResponse():
-    def __init__(self, data):
-        self.data = data
-
-
-def response(data):
-    return HttpResponse(json.dumps(APIResponse(data).__dict__), content_type='application/json')
+SubscriptionRequest = apps.get_model('subscribers', 'SubscriptionRequest')
 
 
 def get_episodes(request):
@@ -25,7 +19,19 @@ def get_episodes(request):
 
 @csrf_exempt
 def create_new_subscription_request(request):
-    if request.method == 'POST':
-        return response(True)
+    if request.method != 'POST':
+        return response("Error: Method must be POST")
+
+    email = request.POST.get('email', False)
+    if email == False:
+        return response("Error: No email provided in request")
+
+    subscription_request = SubscriptionRequest.objects.get_or_create(
+        email=email)
+
+    email_sent = send_confirmation_email(email)
+
+    if email_sent == True:
+        return response(f"Email sent to {email}")
     else:
-        return response(False)
+        return response(f"Unable to send email to {email}")
