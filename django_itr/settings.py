@@ -32,8 +32,7 @@ SECRET_KEY = 'so(-2^t#q@mmbu@=#lr9=zljawkw%mlu=%!b5c043w&6bh8qsf'
 DEBUG = bool(CONFIG.get('Environment', 'DEBUG'))
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = CONFIG.get('Environment', 'ALLOWED_HOSTS').split()
-
+ALLOWED_HOSTS = CONFIG.get('Environment', 'ALLOWED_HOSTS').split(',')
 
 
 # Application definition
@@ -47,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'episodes',
-	'subscribers',
+    'subscribers',
     'api',
     # AWS storage app
     'storages',
@@ -69,9 +68,9 @@ ROOT_URLCONF = 'django_itr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': [
-			'templates',
-		],
+        'DIRS': [
+            'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,7 +135,7 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, 'assets/')
+    os.path.join(BASE_DIR, 'assets/')
 ]
 
 AWS_ACCESS_KEY_ID = CONFIG.get('AWS Secret Keys', 'AWS_ACCESS_KEY_ID')
