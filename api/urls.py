@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import GetEpisodes
+from .views import get_episodes
 
 
 urlpatterns = [
-    path('episodes/', GetEpisodes.as_view(), name="episodes-all")
+    path('episodes/', get_episodes, name="episodes-all")
 ]

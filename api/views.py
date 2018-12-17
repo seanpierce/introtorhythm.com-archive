@@ -1,13 +1,13 @@
-from rest_framework import generics
-from .serializers import EpisodeSerializer
 from django.apps import apps
+from django.core import serializers
+from django.http import HttpResponse
 
 Episode = apps.get_model('episodes', 'Episode')
 
-
-class GetEpisodes(generics.ListAPIView):
+def get_episodes(request):
     """
     Provides a get method handler.
     """
-    queryset = Episode.objects.all()
-    serializer_class = EpisodeSerializer
+    episodes = Episode.objects.all()
+    response = serializers.serialize("json", episodes)
+    return HttpResponse(response, content_type='application/json')
