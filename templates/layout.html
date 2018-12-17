@@ -1,21 +1,22 @@
 {% load static from staticfiles %}
-{% load static from staticfiles %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<title>Intro To Rhythm | {% block title %}{% endblock %}</title>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-		<link rel="icon" href="{% static 'images/favicon.png' %}">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+		<link rel="icon" href="{% static 'images/favicon.png' %}" />
 		<!-- <link rel="icon" href="{% static 'images/eyes.png' %}"> -->
 	</head>
 	<body>
 		<div class="site-container">
-			<div class="content">
-				{% block content %}{% endblock %}
-			</div>
+			<div class="content">{% block content %}{% endblock %}</div>
 		</div>
 	</body>
 	<script src="{% static 'js/app.js' %}"></script>
