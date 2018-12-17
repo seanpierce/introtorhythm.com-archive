@@ -24,7 +24,7 @@ def send_confirmation_email(email):
         smtpObj = smtplib.SMTP('localhost')
         smtpObj.sendmail(sender, receivers, message)
         return True
-    except SMTPException:
+    except smtplib.SMTPException:
         return False
 
 
