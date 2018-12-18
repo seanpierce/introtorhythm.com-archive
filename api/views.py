@@ -11,6 +11,7 @@ from .api_helpers import *
 
 Episode = apps.get_model('episodes', 'Episode')
 SubscriptionRequest = apps.get_model('subscribers', 'SubscriptionRequest')
+Subscriber = apps.get_model('subscribers', 'Subscriber')
 
 
 def get_episodes(request):
@@ -42,3 +43,20 @@ def create_new_subscription_request(request):
         return response(f"Email sent to {email}")
     else:
         return error_response(f"Unable to send email to {email}", 500)
+
+
+def create_subscriber(request):
+    email = request.GET.get('email', False)
+    token = request.GET.get('token', False)
+
+    if (email == False or token == False):
+        return error_response("Error: Unable to process request. Missing information", 422)
+
+    request = SubscriptionRequest.objects.get(email=email, token=token)
+    if request == False:
+        return error_response("Error: Subscription request not found", 404)
+
+    subscriber = Subscriber(email=email)
+    subscriber.save()
+
+    return response("Subscriber created!")
