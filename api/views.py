@@ -29,7 +29,7 @@ def create_new_subscription_request(request):
 
     email = request.POST.get('email', False)
     if email == False:
-        return response("Error: No email provided in request")
+        return error_response("Error: No email provided in request", 422)
 
     subscription_request, created_new = SubscriptionRequest.objects.get_or_create(
         email=email)
