@@ -15,7 +15,7 @@
 			</span>
 		</li>
 		<li>------</li>
-		{% for episode in episodes %}
+		{% for episode in recent_episodes %}
 			{% if current_episode == episode %}
 				<li class="nav-item selected-episode"><a href="{% url 'episode' primary_key=episode.number %}">{{ episode.number }}- {{ episode.title }}</a></li>
 			{% else %}
