@@ -37,9 +37,9 @@ def create_new_subscription_request(request):
         subscription_request.save()
 
     if send_confirmation_email(subscription_request):
-        return response(f'Email sent to {email}')
+        return response('Email sent to ' + email)
     else:
-        return error_response(f'Unable to send email to {email}', 500)
+        return error_response('Unable to send email to ' + email, 500)
 
 
 def create_subscriber(request):
