@@ -23,7 +23,7 @@ def get_episodes(request):
 @csrf_exempt
 def create_new_subscription_request(request):
     if not valid_method('POST', request):
-    	return error_response(f'Error: Method must be POST', 405)
+    	return error_response('Error: Method must be POST', 405)
 
     email = request.POST.get('email', False)
     if not email:
