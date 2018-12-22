@@ -229,6 +229,16 @@ ul, li {
 	text-decoration: none;
 }
 
+#subscription-form input {
+	font-size: 1em;
+}
+
+#subscription-form input[type='submit'] {
+	border: solid 1px #222;
+	background: white;
+	border-radius: 0;
+}
+
 /* ------------------------- Media Queries */
 /* ------------------------- Media Queries */
 /* ------------------------- Media Queries */
