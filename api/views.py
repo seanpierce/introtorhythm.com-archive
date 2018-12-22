@@ -1,11 +1,11 @@
-import json
+# import json
 import uuid
 
 from django.apps import apps
 from django.core import serializers
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings
+# from django.conf import settings
 
 from .api_helpers import *
 
@@ -16,30 +16,27 @@ Subscriber = apps.get_model('subscribers', 'Subscriber')
 
 def get_episodes(request):
     episodes = Episode.objects.all()
-    response = serializers.serialize("json", episodes)
-    return HttpResponse(response, content_type='application/json')
+    res = serializers.serialize("json", episodes)
+    return HttpResponse(res, content_type='application/json')
 
 
 @csrf_exempt
 def create_new_subscription_request(request):
-    if (valid_method('POST', request) == False):
-        return error_response(f"Error: Method must be {method}", 405)
-
-    if (valid_header_key(request) == False):
-        return error_response("Error: Unauthorized to make request", 401)
+    if not valid_method('POST', request):
+    	return error_response(f"Error: Method must be POST", 405)
 
     email = request.POST.get('email', False)
-    if email == False:
+    if not email:
         return error_response("Error: No email provided in request", 422)
 
     subscription_request, created_new = SubscriptionRequest.objects.get_or_create(
         email=email)
 
-    if created_new == False:
+    if not created_new:
         subscription_request.token = uuid.uuid4()
         subscription_request.save()
 
-    if send_confirmation_email(subscription_request) == True:
+    if send_confirmation_email(subscription_request):
         return response(f"Email sent to {email}")
     else:
         return error_response(f"Unable to send email to {email}", 500)
