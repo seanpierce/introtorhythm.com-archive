@@ -5,20 +5,30 @@ from .models import Episode
 # Create your views here.
 def index(request):
 	"""Serves the index page"""
-	episodes = Episode.objects.all()
+	all_episodes = Episode.objects.all()
+	recent_10_episodes = all_episodes[:10]
 	current_episode = Episode.objects.first()
 	return render(request,
 		'episodes/index.html',
-		{'episodes': episodes, 'current_episode': current_episode})
+		{
+			'episodes': all_episodes,
+			'recent_episodes': recent_10_episodes,
+			'current_episode': current_episode
+		})
 
 
 def episode(request, primary_key):
 	"""Serves the specific episode page"""
-	episodes = Episode.objects.all()
+	all_episodes = Episode.objects.all()
+	recent_10_episodes = all_episodes[:10]
 	current_episode = get_object_or_404(Episode, number=primary_key)
 	return render(request,
 		'episodes/index.html',
-		{'episodes': episodes, 'current_episode': current_episode})
+		{
+			'episodes': all_episodes,
+			'recent_episodes': recent_10_episodes,
+			'current_episode': current_episode
+		})
 
 
 # # pk = primary keys
