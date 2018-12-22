@@ -23,11 +23,11 @@ def get_episodes(request):
 @csrf_exempt
 def create_new_subscription_request(request):
     if not valid_method('POST', request):
-    	return error_response(f"Error: Method must be POST", 405)
+    	return error_response(f'Error: Method must be POST', 405)
 
     email = request.POST.get('email', False)
     if not email:
-        return error_response("Error: No email provided in request", 422)
+        return error_response('Error: No email provided in request', 422)
 
     subscription_request, created_new = SubscriptionRequest.objects.get_or_create(
         email=email)
@@ -39,18 +39,18 @@ def create_new_subscription_request(request):
     if send_confirmation_email(subscription_request):
         return response(f"Email sent to {email}")
     else:
-        return error_response(f"Unable to send email to {email}", 500)
+        return error_response(f'Unable to send email to {email}', 500)
 
 
 def create_subscriber(request):
     email = request.GET.get('email', False)
     token = request.GET.get('token', False)
 
-    if (email == False or token == False):
+    if (not email or not token):
         return error_response("Error: Unable to process request. Missing information", 422)
 
     request = SubscriptionRequest.objects.get(email=email, token=token)
-    if request == False:
+    if not request:
         return error_response("Error: Subscription request not found", 404)
 
     subscriber = Subscriber(email=email)
