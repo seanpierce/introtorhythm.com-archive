@@ -126,3 +126,52 @@ function setNowPlayingTime() {
 	document.getElementById('tracktime').innerHTML = current.toTime() + ' / ' + total.toTime();
 }
   
+
+// --------------------------- Subscribe Functions
+// --------------------------- Subscribe Functions
+// --------------------------- Subscribe Functions
+
+function APICALL(url, method, data, headers) {
+    return new Promise((success, failure) => {
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            processData: false,
+            contentType: false,
+            headers: headers
+			})
+			.done(res => {
+				if (res)
+					success(res)
+				else
+					success(`Unable to parse response: ${url}`)
+			})
+			.fail(err => {
+				failure(err);
+			})
+	})
+}
+
+function subscribe(e) {
+	e.preventDefault();
+	var formData = new FormData();
+	var email = $('#subscriber-email').val();
+	formData.append('email', email);
+
+	e.target.innerHTML = `Thanks! An email was sent to ${email}`;
+  
+	APICALL(`api/subscribe/`, `POST`, formData)
+		.then(data => {
+			console.log(data)
+		})
+		.catch(err => {
+			console.log(err)
+		})
+}
+
+var subscriptionForm = document.getElementById('subscription-form');
+
+subscriptionForm.addEventListener('click', function(event) {
+	subscribe(event)
+})
