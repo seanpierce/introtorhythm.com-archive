@@ -22,6 +22,15 @@ def episode(request, primary_key):
 	all_episodes = Episode.objects.all()
 	recent_10_episodes = all_episodes[:10]
 	current_episode = get_object_or_404(Episode, number=primary_key)
+
+	if current_episode not in recent_10_episodes:
+		recent_10_episodes = [
+			x for x in all_episodes
+			if int(x.number) >= int(current_episode.number)
+			and int(x.number) <= int(current_episode.number) + 9
+		]
+
+	# [x for x in episodes if int(x.number) >= 8]
 	return render(request,
 		'episodes/index.html',
 		{
