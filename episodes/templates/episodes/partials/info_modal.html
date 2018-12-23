@@ -8,7 +8,7 @@
 			onclick="closeModal('info-modal')"
 			alt="">
 		<p>{{ current_episode.number }}- {{current_episode.title}}</p>
-		<p>{{ current_episode.info|linebreaks }}</p>
+		<p>{{ current_episode.info|safe }}</p>
 
 		<div id="info-modal-content-footer">
 			<p>------------</p>
