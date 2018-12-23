@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'api',
     # AWS storage app
     'storages',
-    'rest_framework',
+	'ckeditor',
 ]
 
 MIDDLEWARE = [
