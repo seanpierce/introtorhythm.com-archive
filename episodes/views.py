@@ -7,12 +7,17 @@ def index(request):
 	"""Serves the index page"""
 	all_episodes = Episode.objects.all()
 	recent_10_episodes = all_episodes[:10]
+	highest_episode = all_episodes[:1]
+	highest_episode_number = highest_episode[0].number
+
 	current_episode = Episode.objects.first()
+
 	return render(request,
 		'episodes/index.html',
 		{
 			'episodes': all_episodes,
 			'recent_episodes': recent_10_episodes,
+			'higest_episode_number': highest_episode_number,
 			'current_episode': current_episode
 		})
 
@@ -21,6 +26,8 @@ def episode(request, primary_key):
 	"""Serves the specific episode page"""
 	all_episodes = Episode.objects.all()
 	recent_10_episodes = all_episodes[:10]
+	highest_episode = all_episodes[:1]
+	highest_episode_number = highest_episode[0].number
 	current_episode = get_object_or_404(Episode, number=primary_key)
 
 	if current_episode not in recent_10_episodes:
@@ -30,12 +37,12 @@ def episode(request, primary_key):
 			and int(x.number) <= int(current_episode.number) + 9
 		]
 
-	# [x for x in episodes if int(x.number) >= 8]
 	return render(request,
 		'episodes/index.html',
 		{
 			'episodes': all_episodes,
 			'recent_episodes': recent_10_episodes,
+			'higest_episode_number': highest_episode_number,
 			'current_episode': current_episode
 		})
 
