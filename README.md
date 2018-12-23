@@ -9,7 +9,6 @@ Install the following using `pip install`
 -   django (duh!)
 -   django-storages
 -   boto3
--   djangorestframework
 -   Pillow (for ImageField/ FileField access in models)
 -   configparser
 
@@ -57,12 +56,5 @@ The application will be hosted on a DigitalOcean droplet cloud server running Ub
 
 After deploying code, or making updates on the server, restart nginx and gunicorn by running `sudo systemctl restart nginx gunicorn`
 
-### REST API
-
-A REST API is implemented using the **djangorestframework** python package. See implementation docs <a href="https://medium.com/backticks-tildes/lets-build-an-api-with-django-rest-framework-32fcf40231e5">here</a>.
-
-Currently exposed routes:
-
-| Method |   Endpoint    |             Result             |
-| :----: | :-----------: | :----------------------------: |
-|  GET   | /api/episodes | All episode numbers and titles |
+### SSL
+SSL cert was implemented via a combination of the following artices: <a href="https://simpleisbetterthancomplex.com/tutorial/2016/05/11/how-to-setup-ssl-certificate-on-nginx-for-django-application.html">Simple Cert</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority#install-certificate-on-web-server">Digitalocean install ssl cert instructions</a>.
