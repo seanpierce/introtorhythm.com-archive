@@ -7,5 +7,6 @@ admin.site.index_title = "ITR Admin"
 
 class EpisodeAdmin(admin.ModelAdmin):
 	list_display = ('number', 'title', )
+	list_per_page = 10
 
 admin.site.register(Episode, EpisodeAdmin)
