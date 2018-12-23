@@ -5,4 +5,7 @@ admin.site.site_header = "Intro To Rhythm"
 admin.site.site_title = "Intro To Rhythm"
 admin.site.index_title = "ITR Admin"
 
-admin.site.register(Episode)
+class EpisodeAdmin(admin.ModelAdmin):
+	list_display = ('number', 'title', )
+
+admin.site.register(Episode, EpisodeAdmin)
