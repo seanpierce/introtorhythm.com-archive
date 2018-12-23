@@ -1,6 +1,6 @@
 # Django - ITR
 
-introtorhythm.com, but reimagined as a Django application!
+introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server.
 
 ### Dependencies
 
