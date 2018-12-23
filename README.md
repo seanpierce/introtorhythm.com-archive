@@ -11,6 +11,7 @@ Install the following using `pip install`
 -   boto3
 -   Pillow (for ImageField/ FileField access in models)
 -   configparser
+-   django-ckeditor
 
 ### Local installation and usage
 
