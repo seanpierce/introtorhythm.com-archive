@@ -97,8 +97,14 @@ ul, li {
 	background: none;
 }
 
+.modal .modal-content p img {
+	width: 100%;
+}
+
 .modal .modal-content p,
-.modal .modal-content a {
+.modal .modal-content a,
+.modal .modal-content em,
+.modal .modal-content u {
 	color: white !important;
  }
 
