@@ -30,11 +30,11 @@ def episode(request, primary_key):
 	highest_episode_number = highest_episode[0].number
 	current_episode = get_object_or_404(Episode, number=primary_key)
 
-	if current_episode not in recent_10_episodes:
+	if (current_episode not in recent_10_episodes or current_episode == recent_10_episodes[9]):
 		recent_10_episodes = [
 			x for x in all_episodes
-			if int(x.number) >= int(current_episode.number)
-			and int(x.number) <= int(current_episode.number) + 9
+			if int(x.number) >= int(current_episode.number) - 1
+			and int(x.number) <= int(current_episode.number) + 8
 		]
 
 	return render(request,
