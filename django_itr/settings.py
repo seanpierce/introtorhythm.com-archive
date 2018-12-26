@@ -141,6 +141,8 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
+CKEDITOR_BASEPATH = os.path.join(STATIC_ROOT, "ckeditor/")
+
 AWS_ACCESS_KEY_ID = CONFIG.get('AWS Secret Keys', 'AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = CONFIG.get('AWS Secret Keys', 'AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'podcasts.introtorhythm.com'
