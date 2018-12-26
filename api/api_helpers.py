@@ -14,7 +14,7 @@ def send_confirmation_email(subscription_request):
     subject = 'Confirm your subscription - Intro To Rhythm'
     from_email = 'Intro To Rhythm <noreply@introtorhythm.com>'
     to_email = subscription_request.email
-    body = f'Thanks for subscribing! Please confirm your subscription <a href="http://127.0.0.1:8000/api/confirm/?email={subscription_request.email}&token={subscription_request.token}">here</a>'
+    body = 'Thanks for subscribing! Please confirm your subscription <a href="http://127.0.0.1:8000/api/confirm/?email=' + subscription_request.email + '&token=' + subscription_request.token + '">here</a>'
 
     try:
         email = EmailMultiAlternatives(subject, "", from_email, [to_email])
