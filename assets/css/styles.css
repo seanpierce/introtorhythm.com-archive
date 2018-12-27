@@ -170,11 +170,11 @@ ul, li {
 }
 
 .play { 
-	background: url('/assets/images/play.png');
+	background: url('/static/images/play.png');
 }
 
 .pause {
-	 background: url('/assets/images/pause.png');
+	 background: url('/static/images/pause.png');
 }
 
 .archive-episode {
