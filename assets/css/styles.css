@@ -187,6 +187,11 @@ ul, li {
 	transition: all 0.25s;
 }
 
+.archive-close-div {
+	margin-bottom: 1em;
+	padding: 8px;
+}
+
 .aspect-ratio {
 	padding-top: 100%;
 	width: 100%;
