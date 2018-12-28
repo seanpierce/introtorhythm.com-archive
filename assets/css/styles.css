@@ -187,6 +187,11 @@ ul, li {
 	transition: all 0.25s;
 }
 
+.archive-close-div {
+	margin-bottom: 1em;
+	padding: 8px;
+}
+
 .aspect-ratio {
 	padding-top: 100%;
 	width: 100%;
@@ -235,11 +240,18 @@ ul, li {
 	text-decoration: none;
 }
 
+#subscription-form-wrapper {
+	margin-top: 1.5em;
+}
+
 #subscription-form input {
-	font-size: 1em;
+	font-size: 0.75em;
+	padding: 4px;
 }
 
 #subscription-form input[type='submit'] {
+	font-size: 0.75em;
+	color: #222;
 	border: solid 1px #222;
 	background: white;
 	border-radius: 0;

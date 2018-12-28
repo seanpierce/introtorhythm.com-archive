@@ -172,6 +172,6 @@ function subscribe(e) {
 
 var subscriptionForm = document.getElementById('subscription-form');
 
-subscriptionForm.addEventListener('click', function(event) {
+subscriptionForm.addEventListener('submit', function(event) {
 	subscribe(event)
 })

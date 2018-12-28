@@ -2,13 +2,13 @@
 
 <div id="archive-modal" class="modal">
 	<div class="modal-content">
-		<p>
+		<div class="archive-close-div">
 			<img 
 				class="close pointer" 
 				src="{% static 'images/close.svg' %}" 
 				onclick="closeModal('archive-modal')"
 				alt="">
-		</p>
+		</div>
 		{% for episode in episodes %}
 			<div class="archive-episode">
 				<div class="aspect-ratio" style="background-image: url('https://s3.amazonaws.com/podcasts.introtorhythm.com/media/{{ episode.image }}')">
