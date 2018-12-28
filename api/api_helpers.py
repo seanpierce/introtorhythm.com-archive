@@ -2,7 +2,8 @@ import json
 
 from django.http import HttpResponse
 from django.conf import settings
-from django.core.mail import send_mail, EmailMultiAlternatives
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 
 class APIResponse():
@@ -11,18 +12,24 @@ class APIResponse():
 
 
 def send_confirmation_email(subscription_request):
-    subject = 'Confirm your subscription - Intro To Rhythm'
-    from_email = 'Intro To Rhythm <noreply@introtorhythm.com>'
-    to_email = subscription_request.email
-    body = 'Thanks for subscribing! Please confirm your subscription <a href="http://127.0.0.1:8000/api/confirm/?email=' + subscription_request.email + '&token=' + subscription_request.token + '">here</a>'
+	context = {
+		'email': subscription_request.email,
+		'token': subscription_request.token,
+    	'host': settings.HOST_URL
+	}
 
-    try:
-        email = EmailMultiAlternatives(subject, "", from_email, [to_email])
-        email.attach_alternative(body, "text/html")
-        email.send()
-        return True
-    except:
-        return False
+	html_content = render_to_string('subscription_confirmation.html', context)
+
+	try:
+		send_mail('Please confirm your subsciption to ITR',
+			html_content,
+			'noreply@introtorhythm.com',
+			[subscription_request.email],
+			fail_silently=False,
+			html_message=html_content)
+		return True
+	except:
+		return False
 
 
 def response(data):
@@ -30,7 +37,9 @@ def response(data):
 
 
 def error_response(data, status):
-    return HttpResponse(json.dumps(APIResponse(data).__dict__), content_type='application/json', status=status)
+    return HttpResponse(json.dumps(APIResponse(data).__dict__),
+		content_type='application/json',
+		status=status)
 
 
 def valid_method(method, request):
