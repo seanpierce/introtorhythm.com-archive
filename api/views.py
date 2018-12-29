@@ -5,7 +5,9 @@ from django.apps import apps
 from django.core import serializers
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-# from django.conf import settings
+from django.shortcuts import render
+from django.shortcuts import redirect
+from django.conf import settings
 
 from .api_helpers import *
 
@@ -49,11 +51,27 @@ def create_subscriber(request):
     if (not email or not token):
         return error_response("Error: Unable to process request. Missing information", 422)
 
-    request = SubscriptionRequest.objects.get(email=email, token=token)
-    if not request:
+    subscription_request = SubscriptionRequest.objects.get(email=email, token=token)
+    if not subscription_request:
         return error_response("Error: Subscription request not found", 404)
 
-    subscriber = Subscriber(email=email)
-    subscriber.save()
+    subscriber, created_new = Subscriber.objects.get_or_create(email=email)
 
-    return response("Subscriber created!")
+    if created_new:
+    	exists = False
+    else:
+    	exists = True
+
+    return redirect(f'/thanks/?email={email}&exists={exists}')
+
+def thanks(request):
+	root = settings.HOST_URL
+	email = request.GET.get('email', False)
+	exists = request.GET.get('exists', False)
+	return render(request,
+		'api/thanks.html',
+		{
+			'email': email,
+			'root': root,
+			'exists': exists
+		})
