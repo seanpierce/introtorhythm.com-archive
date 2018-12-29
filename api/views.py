@@ -58,9 +58,9 @@ def create_subscriber(request):
     subscriber, created_new = Subscriber.objects.get_or_create(email=email)
 
     if created_new:
-    	exists = False
+    	exists = 'False'
     else:
-    	exists = True
+    	exists = 'True'
 
     return redirect('/thanks/?email=' + email + '&exists=' + exists)
 
