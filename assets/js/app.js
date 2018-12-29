@@ -170,8 +170,8 @@ function subscribe(e) {
 		})
 }
 
-// var subscriptionForm = document.getElementById('subscription-form');
+var subscriptionForm = document.getElementById('subscription-form');
 
-// subscriptionForm.addEventListener('click', function(event) {
-// 	subscribe(event)
-// })
+subscriptionForm.addEventListener('submit', function(event) {
+	subscribe(event)
+})

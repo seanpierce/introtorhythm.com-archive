@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Intro To Rhythm | Thanks!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link rel="stylesheet" href="{{root}}/static/css/styles.css">
+	</head>
+	<script>
+		function gohome() {
+			window.location.href= "{{root}}"
+		}
+	</script>
+	<body onclick="gohome()">
+		<div id="thanks">
+			{% if exists == 'True' %}
+				Email <u>{{email}}</u> is already in the list of subscribers.
+			{% else %}
+				Thanks! <u>{{email}}</u> has been added to our list of subscribers.
+			{% endif %}
+			<div class="sub-text">
+				(click anywhere to return to ITR)
+			</div>
+		</div>
+	</body>
+</html>
