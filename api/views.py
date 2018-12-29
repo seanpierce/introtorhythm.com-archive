@@ -62,7 +62,7 @@ def create_subscriber(request):
     else:
     	exists = True
 
-    return redirect(f'/thanks/?email={email}&exists={exists}')
+    return redirect('/thanks/?email=' + email + '&exists=' + exists)
 
 def thanks(request):
 	root = settings.HOST_URL
