@@ -257,6 +257,17 @@ ul, li {
 	border-radius: 0;
 }
 
+#thanks {
+	font-size: 6em;
+	font-family: 'Droid Sans Mono';
+	color: #222;
+	box-sizing: border-box;
+}
+
+#thanks .sub-text {
+	font-size: 0.25em;
+}
+
 /* ------------------------- Media Queries */
 /* ------------------------- Media Queries */
 /* ------------------------- Media Queries */
