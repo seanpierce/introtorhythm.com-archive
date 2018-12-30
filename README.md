@@ -60,4 +60,5 @@ The application will be hosted on a DigitalOcean droplet cloud server running Ub
 After deploying code, or making updates on the server, restart nginx and gunicorn by running `sudo systemctl restart nginx gunicorn`
 
 ### SSL
-SSL cert was implemented via a combination of the following artices: <a href="https://simpleisbetterthancomplex.com/tutorial/2016/05/11/how-to-setup-ssl-certificate-on-nginx-for-django-application.html">Simple Cert</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority#install-certificate-on-web-server">Digitalocean install ssl cert instructions</a>.
+Currently using a <a href="https://www.quora.com/What-is-Positive-SSL-and-how-is-it-implemented">positivessl</a> cert purchased/ managed through namecheap.
+SSL cert was implemented via a combination of the following artices: <a href="https://simpleisbetterthancomplex.com/tutorial/2016/05/11/how-to-setup-ssl-certificate-on-nginx-for-django-application.html">Simple Cert</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority#install-certificate-on-web-server">Digitalocean install ssl cert instructions</a>. The cert expires in December 2019.
