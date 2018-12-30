@@ -19,7 +19,7 @@ Install the following using `pip install`
 -   Install the dependencies that are listed above
 -   From the project's root, run `$ python manage.py migrate` to generate the database
 -   Create a config file for storing local environment variables `$ cd ../ && mkdir environment && touch settings.ini`
-	-   See example settings file <a href-"">here</a>
+	-   See `example_settings.ini`
 -   Start the Django development server by running `$ python manage.py runserver`
 -   Create an admin user by running `$ python manage.py createsuperuser` and follow the provided instructions
 -   Visit <a href="http://localhost:8000/">localhost:8000</a> in your preferred browser
