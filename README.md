@@ -1,6 +1,6 @@
 # Django - ITR
 
-introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server.
+introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server. ITR is a freeform podcast series featuring mixes and compositions from an international group of artists.
 
 ### Dependencies
 
