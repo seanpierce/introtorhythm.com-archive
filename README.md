@@ -64,4 +64,4 @@ Currently using a <a href="https://www.quora.com/What-is-Positive-SSL-and-how-is
 SSL cert was implemented via a combination of the following artices: <a href="https://simpleisbetterthancomplex.com/tutorial/2016/05/11/how-to-setup-ssl-certificate-on-nginx-for-django-application.html">Simple Cert</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority#install-certificate-on-web-server">Digitalocean install ssl cert instructions</a>. The cert expires in December 2019.
 
 ### TODOs
-Optimize code speen by performing fewer sql queries and serializing data less. See <a href="https://medium.com/@ryleysill93/basic-performance-optimization-in-django-ebd19089a33f">this article</a>.
+Optimize code speed by performing fewer sql queries and serializing data less. See <a href="https://medium.com/@ryleysill93/basic-performance-optimization-in-django-ebd19089a33f">this article</a>.
