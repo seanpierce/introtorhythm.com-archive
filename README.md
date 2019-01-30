@@ -15,9 +15,9 @@ please [see the wiki](https://github.com/seanpierce/introtorhythm.com/wiki)!
 ### Local installation and usage
 
 -   Clone this repo `$ git clone https://github.com/seanpierce/django-itr`
--   Install the dependencies that are listed above
+-   Install the [dependencies](https://github.com/seanpierce/introtorhythm.com/wiki/Dependencies)
 -   From the project's root, run `$ python manage.py migrate` to generate the database
--   Create a config file for storing local environment variables `$ cd ../ && mkdir environment && touch environment/settings.ini`
+-   Create a config file for storing local [environment variables](https://github.com/seanpierce/introtorhythm.com/wiki/Environment-Variables) `$ cd ../ && mkdir environment && touch environment/settings.ini`
 	-   See `example_settings.ini` for implementation example
 -   Back in the repo's root, start the Django development server by running `$ cd django-itr && python manage.py runserver`
 -   Create an admin user by running `$ python manage.py createsuperuser` and follow the provided instructions
