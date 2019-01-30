@@ -6,6 +6,7 @@ introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu c
 
 For information regarding:
 
+* Live-Streaming
 * Dependencies
 * AWS Storage
 * Environment Variable Management
