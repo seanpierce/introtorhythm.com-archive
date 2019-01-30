@@ -1,6 +1,6 @@
 # Django - ITR
 
-introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server.
+introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server. ITR is a freeform podcast series featuring mixes and compositions from an international group of artists.
 
 ### Dependencies
 
@@ -62,3 +62,7 @@ After deploying code, or making updates on the server, restart nginx and gunicor
 ### SSL
 Currently using a <a href="https://www.quora.com/What-is-Positive-SSL-and-how-is-it-implemented">positivessl</a> cert purchased/ managed through namecheap.
 SSL cert was implemented via a combination of the following artices: <a href="https://simpleisbetterthancomplex.com/tutorial/2016/05/11/how-to-setup-ssl-certificate-on-nginx-for-django-application.html">Simple Cert</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority#install-certificate-on-web-server">Digitalocean install ssl cert instructions</a>. The cert expires in December 2019.
+
+### TODOs
+* Optimize code speed by performing fewer sql queries and serializing data less. See <a href="https://medium.com/@ryleysill93/basic-performance-optimization-in-django-ebd19089a33f">this article</a>.
+* Implement async display of "live" feature, and implement async live chat using django-channels. See the docs <a href="https://channels.readthedocs.io/en/latest/">here</a>
