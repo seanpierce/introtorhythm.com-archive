@@ -22,7 +22,3 @@ please [see the wiki](https://github.com/seanpierce/introtorhythm.com/wiki)!
 -   Back in the repo's root, start the Django development server by running `$ cd django-itr && python manage.py runserver`
 -   Create an admin user by running `$ python manage.py createsuperuser` and follow the provided instructions
 -   Visit <a href="http://localhost:8000/">localhost:8000</a> in your preferred browser
-
-### TODOs
-* Optimize code speed by performing fewer sql queries and serializing data less. See <a href="https://medium.com/@ryleysill93/basic-performance-optimization-in-django-ebd19089a33f">this article</a>.
-* Implement async display of "live" feature, and implement async live chat using django-channels. See the docs <a href="https://channels.readthedocs.io/en/latest/">here</a>
