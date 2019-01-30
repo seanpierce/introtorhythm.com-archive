@@ -5,28 +5,36 @@ from django.http import HttpResponse
 
 from .models import Subscriber, SubscriptionRequest
 
+
 class SubscriberAdmin(admin.ModelAdmin):
-	list_display = ('email', 'created_at')
-	actions = ["export_as_csv"]
+    list_display = ('email', 'created_at')
+    actions = ["export_as_csv"]
 
-	def export_as_csv(self, request, queryset):
-		meta = self.model._meta
-		# field_names = [field.name for field in meta.fields]
+    def export_as_csv(self, request, queryset):
+        meta = self.model._meta
 
-		response = HttpResponse(content_type='text/csv')
-		response['Content-Disposition'] = 'attachment; filename={}.csv'.format(meta)
-		writer = csv.writer(response)
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename={}.csv'.format(
+            meta)
+        writer = csv.writer(response)
 
-		# writer.writerow(field_names)
-		for obj in queryset:
-			writer.writerow([u''.join(obj.email).strip()])
+        for obj in queryset:
+            writer.writerow([u''.join(obj.email).strip()])
 
-		return response
+        return response
 
-	export_as_csv.short_description = "Export Selected"
+    export_as_csv.short_description = "Export Selected"
+
 
 class SubscriptionRequestAdmin(admin.ModelAdmin):
-	list_display = ('token', 'email', 'created_at')
+    list_display = ('token', 'email', 'created_at')
+    actions = ["add_to_subscribers"]
+
+    def add_to_subscribers(self, request, queryset):
+        for obj in queryset:
+            Subscriber.objects.create(email=obj.email)
+            SubscriptionRequest.objects.filter(id=obj.id).delete()
+
 
 admin.site.register(Subscriber, SubscriberAdmin)
 admin.site.register(SubscriptionRequest, SubscriptionRequestAdmin)
