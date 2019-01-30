@@ -36,6 +36,12 @@ DEBUG = bool(CONFIG.get('Environment', 'DEBUG'))
 ALLOWED_HOSTS = CONFIG.get('Environment', 'ALLOWED_HOSTS').split(',')
 HOST_URL = CONFIG.get('Environment', 'HOST_URL')
 
+if DEBUG is True:
+	SECURE_SSL_REDIRECT = False
+else:
+	SECURE_SSL_REDIRECT = True
+
+
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = CONFIG.get('EMAIL SECRET KEYS', 'EMAIL_HOST')
