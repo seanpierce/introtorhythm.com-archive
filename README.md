@@ -22,3 +22,6 @@ please [see the wiki](https://github.com/seanpierce/introtorhythm.com/wiki)!
 -   Back in the repo's root, start the Django development server by running `$ cd django-itr && python manage.py runserver`
 -   Create an admin user by running `$ python manage.py createsuperuser` and follow the provided instructions
 -   Visit <a href="http://localhost:8000/">localhost:8000</a> in your preferred browser
+
+### License
+* [MIT](https://raw.githubusercontent.com/seanpierce/introtorhythm.com/master/LICENSE)
