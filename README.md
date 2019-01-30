@@ -1,17 +1,16 @@
 # Django - ITR
 
-introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server. ITR is a freeform podcast series featuring mixes and compositions from an international group of artists.
+introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server. ITR is a freeform podcast series featuring mixes and compositions from an international group of artists. Ocassionally, ITR serves as a live audio-streaming internet radio station (when we fell like it).
 
-### Dependencies
+For information regarding:
 
-Install the following using `pip install`
+* Dependencies
+* AWS Storage
+* Environment Variable Management
+* Deployments
+* SSL/ SSH
 
--   django (duh!)
--   django-storages
--   boto3
--   Pillow (for ImageField/ FileField access in models)
--   configparser
--   django-ckeditor
+please [see the wiki](https://github.com/seanpierce/introtorhythm.com/wiki)!
 
 ### Local installation and usage
 
@@ -23,35 +22,6 @@ Install the following using `pip install`
 -   Back in the repo's root, start the Django development server by running `$ cd django-itr && python manage.py runserver`
 -   Create an admin user by running `$ python manage.py createsuperuser` and follow the provided instructions
 -   Visit <a href="http://localhost:8000/">localhost:8000</a> in your preferred browser
-
-### AWS storage
-
-Admin-uploaded files are stored in an AWS S3 bucket. This functionality is possible using the **boto3** and **django-storages** python packages.
-See implementation docs <a href="https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html">here</a>.
-
-### Environment Variables
-
-Using <a href="https://docs.python.org/3/library/configparser.html">configparser</a>, the settings.py file imports a configuration file named `settings.ini`, located in the application's sibling folder called `environments`. Note: all variables coming from configparser are strings, remember to parse them to the appropriate data type (int, bool, list, etc).
-
-ex: settings.py
-```python
-import configparser
-
-CONFIG = configparser.RawConfigParser()
-CONFIG.read('../environments/settings.ini')
-
-DEBUG = bool(CONFIG.get('Environment', 'DEBUG'))
-```
-
-ex: environments/settings.ini
-```python
-[Test Keys]
-SECRET_STRING = somestring
-SECRET_ARRAY = some,example,array
-
-[Environment]
-DEBUG = True
-```
 
 ### Deployments
 
