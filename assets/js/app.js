@@ -175,3 +175,64 @@ var subscriptionForm = document.getElementById('subscription-form');
 subscriptionForm.addEventListener('submit', function(event) {
 	subscribe(event)
 })
+
+// -------------------------------------------
+// ---------------------------- Live Functions
+// -------------------------------------------
+
+var checkForLiveInterval = 10000;
+var checkInterval;
+
+function checkForLiveStream() {
+	checkInterval = setInterval(() => {
+		getLiveStreamData()
+		.then(live => {
+			if (live) {
+				goLive();
+			} else {
+				notLive();
+			}
+		});
+	}, checkForLiveInterval)
+}
+
+function goLive() {
+	setStatus(true);
+	resetCheckForLive(true);
+}
+
+function notLive() {
+	setStatus(false);
+	resetCheckForLive(false);
+}
+
+function resetCheckForLive(live) {
+	clearInterval(checkInterval);
+	checkForLiveInterval = live ? 60000 : 10000;
+	checkForLiveStream();
+}
+
+function setStatus(live) {
+	var status = document.getElementById('status');
+	if (live) {
+		status.innerHTML = "<a href='http://live.introtorhythm.com:8000/stream' target='_blank'>Now Live!</a>";
+	} else {
+		status.innerHTML = "Offline";
+	}
+}
+
+function getLiveStreamData() {
+	return new Promise((success, fail) => {
+		$.ajax({
+			url: 'http://live.introtorhythm.com:8000/status-json.xsl'
+		}).done(data => {
+			if (data.icestats && data.icestats.source) {
+				success(true)
+			} else {
+				success(false)
+			}
+		})
+	})
+}
+
+checkForLiveStream();

@@ -268,6 +268,16 @@ ul, li {
 	font-size: 0.25em;
 }
 
+#status a {
+	color: red;
+}
+
+div.stream-content,
+div.stream-content div,
+div.stream-content ul li a{
+	color: white;
+}
+
 /* ------------------------- Media Queries */
 /* ------------------------- Media Queries */
 /* ------------------------- Media Queries */
