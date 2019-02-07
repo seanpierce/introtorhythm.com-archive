@@ -174,7 +174,7 @@ ul, li {
 }
 
 .pause {
-	 background: url('/static/images/pause.png');
+	background: url('/static/images/pause.png');
 }
 
 .archive-episode {
@@ -266,6 +266,16 @@ ul, li {
 
 #thanks .sub-text {
 	font-size: 0.25em;
+}
+
+#status a {
+	color: red;
+}
+
+div.stream-content,
+div.stream-content div,
+div.stream-content ul li a{
+	color: white;
 }
 
 /* ------------------------- Media Queries */
