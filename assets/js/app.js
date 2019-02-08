@@ -215,7 +215,7 @@ function resetCheckForLive(live) {
 function setStatus(live) {
 	var status = document.getElementById('status');
 	if (live) {
-		status.innerHTML = "<a href='http://live.introtorhythm.com:8000/stream' target='_blank'>Now Live!</a>";
+		status.innerHTML = "<a href='https://live.introtorhythm.com:8443/stream' target='_blank'>Now Live!</a>";
 	} else {
 		status.innerHTML = "Offline";
 	}
@@ -224,7 +224,7 @@ function setStatus(live) {
 function getLiveStreamData() {
 	return new Promise((success, fail) => {
 		$.ajax({
-			url: 'http://live.introtorhythm.com:8000/status-json.xsl'
+			url: 'https://live.introtorhythm.com:8443/status-json.xsl'
 		}).done(data => {
 			if (data.icestats && data.icestats.source) {
 				success(true)
@@ -235,4 +235,4 @@ function getLiveStreamData() {
 	})
 }
 
-// checkForLiveStream();
+checkForLiveStream();
