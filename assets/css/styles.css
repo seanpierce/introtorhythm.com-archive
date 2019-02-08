@@ -104,7 +104,8 @@ ul, li {
 .modal .modal-content p,
 .modal .modal-content a,
 .modal .modal-content em,
-.modal .modal-content u {
+.modal .modal-content u,
+.modal .modal-content span {
 	color: white !important;
  }
 
@@ -270,12 +271,11 @@ ul, li {
 
 #status a {
 	color: red;
+	cursor: pointer;
 }
 
-div.stream-content,
-div.stream-content div,
-div.stream-content ul li a{
-	color: white;
+#status a:hover {
+	text-decoration: underline;
 }
 
 /* ------------------------- Media Queries */
