@@ -180,13 +180,8 @@ subscriptionForm.addEventListener('submit', function(event) {
 // ---------------------------- Live Functions
 // -------------------------------------------
 
-var checkForLiveInterval = 10000;
-var checkInterval;
-var streamData = {};
-var streamAudio = new Audio();
-
 function checkForLiveStream() {
-	checkInterval = setInterval(() => {
+	var checkInterval = setInterval(() => {
 		getLiveStreamData()
 		.then(live => {
 			if (live) {
@@ -195,7 +190,7 @@ function checkForLiveStream() {
 				notLive();
 			}
 		});
-	}, checkForLiveInterval)
+	}, 60000)
 }
 
 function goLive() {
@@ -209,38 +204,9 @@ function notLive() {
 function setStatus(live) {
 	var status = document.getElementById('status');
 	if (live) {
-		updateStreamInfo(streamData);
-		status.innerHTML = `<a onclick='openModal("live-modal")'>Now Live!</a>`;
+		status.innerHTML = `Status: <a href='/live' target='_blank'>Now Live!</a>`;
 	} else {
 		status.innerHTML = "Offline";
-	}
-}
-
-function updateStreamInfo(data) {
-	var program = document.getElementById('stream-program');
-	var current = document.getElementById('stream-current');
-
-	if (program && current) {
-		var genre = "data unavailable";
-		var title = "data unavailable";
-
-		if (
-			data.source 
-			&& data.source.genre
-		) {
-			genre = data.source.genre;
-		}
-	
-		if (
-			data.source 
-			&& data.source.title
-			&& data.source.title !== "'' - ''"
-		) {
-			title = data.source.title;
-		}
-	
-		program.innerHTML = genre;
-		current.innerHTML = title;	
 	}
 }
 
@@ -259,11 +225,13 @@ function getLiveStreamData() {
 	})
 }
 
-function closeStreamModal() {
-	var modal = document.getElementById('live-modal');
-	modal.style.display = 'none';
-	var stream = document.getElementById('live-stream-audio');
-	stream.pause();
-}
-
-checkForLiveStream();
+getLiveStreamData()
+	.then(live => {
+		if (live) {
+			goLive();
+			checkForLiveStream();
+		} else {
+			notLive();
+			checkForLiveStream();
+		}
+	});
