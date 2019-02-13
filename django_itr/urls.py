@@ -21,11 +21,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
 
 urlpatterns = [
-	url(r'^ep/', include('episodes.urls')),
 	url(r'', include('episodes.urls')),
+	url(r'^live', include('episodes.urls')),
 	url(r'^api/', include('api.urls')),
 	url(r'^thanks/', include('api.urls')),
-	url(r'^live/', include('live.urls')),
     url(r'^admin/', admin.site.urls),
 ]
 
