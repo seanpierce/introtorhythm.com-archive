@@ -206,7 +206,7 @@ function setStatus(live) {
 	if (live) {
 		status.innerHTML = `Status: <a href='/live' target='_blank'>Now Live!</a>`;
 	} else {
-		status.innerHTML = "Offline";
+		status.innerHTML = "";
 	}
 }
 
