@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'episodes',
     'subscribers',
     'api',
-	'live',
     # AWS storage app
     'storages',
     'ckeditor',
