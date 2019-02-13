@@ -1,6 +1,6 @@
 ![](https://user-images.githubusercontent.com/15679739/51988581-3967a700-2462-11e9-8ef3-c73ab80540b7.png)
 
-# Django - ITR
+# introtorhythm.com
 
 introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server. ITR is a freeform podcast series featuring mixes and compositions from an international group of artists. Ocassionally, ITR serves as a live audio-streaming internet radio station (when we fell like it).
 
