@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 
 from .models import Episode
 
@@ -45,6 +45,9 @@ def episode(request, primary_key):
 			'higest_episode_number': highest_episode_number,
 			'current_episode': current_episode
 		})
+
+def live(request):
+	return redirect('https://live.introtorhythm.com:8443/stream')
 
 
 # # pk = primary keys
