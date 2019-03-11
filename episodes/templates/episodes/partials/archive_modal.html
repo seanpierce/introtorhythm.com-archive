@@ -15,10 +15,10 @@
 					<div class="hover-info">
 						<ul class="hover-content">
 							<li>
-								<a href="{% url 'episode' primary_key=episode.number %}">{{ episode.number }}</a>
+								<a href="/{{ episode.number }}">{{ episode.number }}</a>
 							</li>
 							<li>
-								<a href="{% url 'episode' primary_key=episode.number %}">{{ episode.title }}</a>
+								<a href="/{{ episode.number }}">{{ episode.title }}</a>
 							</li>
 						</ul>
 					</div>
