@@ -5,26 +5,21 @@ from .models import Episode
 # Create your views here.
 def index(request):
 	"""Serves the index page"""
-	all_episodes = Episode.objects.all()
-	recent_10_episodes = all_episodes[:10]
-	highest_episode = all_episodes[:1]
-	highest_episode_number = highest_episode[0].number
-
-	current_episode = Episode.objects.first()
+	all_episodes = Episode.objects.all().filter(active=True)
 
 	return render(request,
 		'episodes/index.html',
 		{
 			'episodes': all_episodes,
-			'recent_episodes': recent_10_episodes,
-			'higest_episode_number': highest_episode_number,
-			'current_episode': current_episode
+			'recent_episodes': all_episodes[:10],
+			'higest_episode_number': all_episodes.first().number,
+			'current_episode': all_episodes.first()
 		})
 
 
 def episode(request, primary_key):
 	"""Serves the specific episode page"""
-	all_episodes = Episode.objects.all()
+	all_episodes = Episode.objects.all().filter(active=True)
 	recent_10_episodes = all_episodes[:10]
 	highest_episode = all_episodes[:1]
 	highest_episode_number = highest_episode[0].number
