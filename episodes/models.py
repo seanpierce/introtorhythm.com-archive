@@ -12,6 +12,7 @@ class Episode(models.Model):
 		max_length=500, default='assets/not-found.jpg')
 	audio = models.FileField(upload_to='episodes/audio/',
 		max_length=500, default='assets/not-found.mp3')
+	active = models.BooleanField(default=True)
 
 	class Meta:
 		ordering = ['-number',]
