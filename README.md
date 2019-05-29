@@ -4,6 +4,8 @@
 
 introtorhythm.com, but reimagined as a Django application! Hosted on an Ubuntu cloud server. ITR is a freeform podcast series featuring mixes and compositions from an international group of artists. Ocassionally, ITR serves as a live audio-streaming internet radio station (when we fell like it).
 
+Additionally, ITR is dedicated to open-source projects, and the collective idea sharing that fuels creative expression. If you're interested in developing your own live-streaming station or podcasting platform, you're invited to refer to ITR's source code here, or ask questions by sending a message to introtorhythm@gmail.com
+
 For information regarding:
 
 * Live-Streaming
