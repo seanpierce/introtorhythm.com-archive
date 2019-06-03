@@ -235,3 +235,9 @@ getLiveStreamData()
 			checkForLiveStream();
 		}
 	});
+
+// https redirect hotfix
+// TODO: implement
+if (location.protocol !== 'https:') {
+	location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}
